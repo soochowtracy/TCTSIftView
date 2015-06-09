@@ -1,0 +1,467 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FCB333841B26CF8100615F3D /* TCTSiftViewTabItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB333831B26CF8100615F3D /* TCTSiftViewTabItem.m */; };
+		FCB333871B26D52B00615F3D /* TCTSiftViewConst.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB333861B26D52B00615F3D /* TCTSiftViewConst.m */; };
+		FCB3338A1B26DD4400615F3D /* UIView+TCTSiftView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB333891B26DD4300615F3D /* UIView+TCTSiftView.m */; };
+		FCE0C19D1B268CFA0053AE1E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE0C19C1B268CFA0053AE1E /* main.m */; };
+		FCE0C1A01B268CFA0053AE1E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE0C19F1B268CFA0053AE1E /* AppDelegate.m */; };
+		FCE0C1A31B268CFA0053AE1E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE0C1A21B268CFA0053AE1E /* ViewController.m */; };
+		FCE0C1A61B268CFA0053AE1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCE0C1A41B268CFA0053AE1E /* Main.storyboard */; };
+		FCE0C1A81B268CFA0053AE1E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCE0C1A71B268CFA0053AE1E /* Images.xcassets */; };
+		FCE0C1AB1B268CFA0053AE1E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCE0C1A91B268CFA0053AE1E /* LaunchScreen.xib */; };
+		FCE0C1B71B268CFA0053AE1E /* TCTSiftViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE0C1B61B268CFA0053AE1E /* TCTSiftViewTests.m */; };
+		FCE0C1C21B268DA90053AE1E /* TCTSiftView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE0C1C11B268DA90053AE1E /* TCTSiftView.m */; };
+		FCE0C1C61B268F2D0053AE1E /* TCTSiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE0C1C41B268F2D0053AE1E /* TCTSiftViewController.m */; };
+		FCE0C1C71B268F2D0053AE1E /* TCTSiftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCE0C1C51B268F2D0053AE1E /* TCTSiftViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FCE0C1B11B268CFA0053AE1E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCE0C18F1B268CF90053AE1E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FCE0C1961B268CFA0053AE1E;
+			remoteInfo = TCTSiftView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FCB333821B26CF8100615F3D /* TCTSiftViewTabItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTSiftViewTabItem.h; sourceTree = "<group>"; };
+		FCB333831B26CF8100615F3D /* TCTSiftViewTabItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTSiftViewTabItem.m; sourceTree = "<group>"; };
+		FCB333851B26D52B00615F3D /* TCTSiftViewConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTSiftViewConst.h; sourceTree = "<group>"; };
+		FCB333861B26D52B00615F3D /* TCTSiftViewConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTSiftViewConst.m; sourceTree = "<group>"; };
+		FCB333881B26DD4300615F3D /* UIView+TCTSiftView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TCTSiftView.h"; sourceTree = "<group>"; };
+		FCB333891B26DD4300615F3D /* UIView+TCTSiftView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TCTSiftView.m"; sourceTree = "<group>"; };
+		FCE0C1971B268CFA0053AE1E /* TCTSiftView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCTSiftView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCE0C19B1B268CFA0053AE1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCE0C19C1B268CFA0053AE1E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FCE0C19E1B268CFA0053AE1E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FCE0C19F1B268CFA0053AE1E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FCE0C1A11B268CFA0053AE1E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FCE0C1A21B268CFA0053AE1E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FCE0C1A51B268CFA0053AE1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FCE0C1A71B268CFA0053AE1E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FCE0C1AA1B268CFA0053AE1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		FCE0C1B01B268CFA0053AE1E /* TCTSiftViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCTSiftViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCE0C1B51B268CFA0053AE1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCE0C1B61B268CFA0053AE1E /* TCTSiftViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCTSiftViewTests.m; sourceTree = "<group>"; };
+		FCE0C1C01B268DA90053AE1E /* TCTSiftView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTSiftView.h; sourceTree = "<group>"; };
+		FCE0C1C11B268DA90053AE1E /* TCTSiftView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTSiftView.m; sourceTree = "<group>"; };
+		FCE0C1C31B268F2D0053AE1E /* TCTSiftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTSiftViewController.h; sourceTree = "<group>"; };
+		FCE0C1C41B268F2D0053AE1E /* TCTSiftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTSiftViewController.m; sourceTree = "<group>"; };
+		FCE0C1C51B268F2D0053AE1E /* TCTSiftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCTSiftViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FCE0C1941B268CFA0053AE1E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCE0C1AD1B268CFA0053AE1E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FCE0C18E1B268CF90053AE1E = {
+			isa = PBXGroup;
+			children = (
+				FCE0C1991B268CFA0053AE1E /* TCTSiftView */,
+				FCE0C1B31B268CFA0053AE1E /* TCTSiftViewTests */,
+				FCE0C1981B268CFA0053AE1E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FCE0C1981B268CFA0053AE1E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FCE0C1971B268CFA0053AE1E /* TCTSiftView.app */,
+				FCE0C1B01B268CFA0053AE1E /* TCTSiftViewTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FCE0C1991B268CFA0053AE1E /* TCTSiftView */ = {
+			isa = PBXGroup;
+			children = (
+				FCE0C19E1B268CFA0053AE1E /* AppDelegate.h */,
+				FCE0C19F1B268CFA0053AE1E /* AppDelegate.m */,
+				FCE0C1A11B268CFA0053AE1E /* ViewController.h */,
+				FCE0C1A21B268CFA0053AE1E /* ViewController.m */,
+				FCE0C1A41B268CFA0053AE1E /* Main.storyboard */,
+				FCE0C1A71B268CFA0053AE1E /* Images.xcassets */,
+				FCE0C1A91B268CFA0053AE1E /* LaunchScreen.xib */,
+				FCE0C19A1B268CFA0053AE1E /* Supporting Files */,
+				FCB333851B26D52B00615F3D /* TCTSiftViewConst.h */,
+				FCB333861B26D52B00615F3D /* TCTSiftViewConst.m */,
+				FCB333881B26DD4300615F3D /* UIView+TCTSiftView.h */,
+				FCB333891B26DD4300615F3D /* UIView+TCTSiftView.m */,
+				FCE0C1C01B268DA90053AE1E /* TCTSiftView.h */,
+				FCE0C1C11B268DA90053AE1E /* TCTSiftView.m */,
+				FCB333821B26CF8100615F3D /* TCTSiftViewTabItem.h */,
+				FCB333831B26CF8100615F3D /* TCTSiftViewTabItem.m */,
+				FCE0C1C31B268F2D0053AE1E /* TCTSiftViewController.h */,
+				FCE0C1C41B268F2D0053AE1E /* TCTSiftViewController.m */,
+				FCE0C1C51B268F2D0053AE1E /* TCTSiftViewController.xib */,
+			);
+			path = TCTSiftView;
+			sourceTree = "<group>";
+		};
+		FCE0C19A1B268CFA0053AE1E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FCE0C19B1B268CFA0053AE1E /* Info.plist */,
+				FCE0C19C1B268CFA0053AE1E /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FCE0C1B31B268CFA0053AE1E /* TCTSiftViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				FCE0C1B61B268CFA0053AE1E /* TCTSiftViewTests.m */,
+				FCE0C1B41B268CFA0053AE1E /* Supporting Files */,
+			);
+			path = TCTSiftViewTests;
+			sourceTree = "<group>";
+		};
+		FCE0C1B41B268CFA0053AE1E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FCE0C1B51B268CFA0053AE1E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FCE0C1961B268CFA0053AE1E /* TCTSiftView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCE0C1BA1B268CFA0053AE1E /* Build configuration list for PBXNativeTarget "TCTSiftView" */;
+			buildPhases = (
+				FCE0C1931B268CFA0053AE1E /* Sources */,
+				FCE0C1941B268CFA0053AE1E /* Frameworks */,
+				FCE0C1951B268CFA0053AE1E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TCTSiftView;
+			productName = TCTSiftView;
+			productReference = FCE0C1971B268CFA0053AE1E /* TCTSiftView.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FCE0C1AF1B268CFA0053AE1E /* TCTSiftViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCE0C1BD1B268CFA0053AE1E /* Build configuration list for PBXNativeTarget "TCTSiftViewTests" */;
+			buildPhases = (
+				FCE0C1AC1B268CFA0053AE1E /* Sources */,
+				FCE0C1AD1B268CFA0053AE1E /* Frameworks */,
+				FCE0C1AE1B268CFA0053AE1E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FCE0C1B21B268CFA0053AE1E /* PBXTargetDependency */,
+			);
+			name = TCTSiftViewTests;
+			productName = TCTSiftViewTests;
+			productReference = FCE0C1B01B268CFA0053AE1E /* TCTSiftViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FCE0C18F1B268CF90053AE1E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = tracyone;
+				TargetAttributes = {
+					FCE0C1961B268CFA0053AE1E = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					FCE0C1AF1B268CFA0053AE1E = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = FCE0C1961B268CFA0053AE1E;
+					};
+				};
+			};
+			buildConfigurationList = FCE0C1921B268CFA0053AE1E /* Build configuration list for PBXProject "TCTSiftView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FCE0C18E1B268CF90053AE1E;
+			productRefGroup = FCE0C1981B268CFA0053AE1E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FCE0C1961B268CFA0053AE1E /* TCTSiftView */,
+				FCE0C1AF1B268CFA0053AE1E /* TCTSiftViewTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FCE0C1951B268CFA0053AE1E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCE0C1A61B268CFA0053AE1E /* Main.storyboard in Resources */,
+				FCE0C1AB1B268CFA0053AE1E /* LaunchScreen.xib in Resources */,
+				FCE0C1C71B268F2D0053AE1E /* TCTSiftViewController.xib in Resources */,
+				FCE0C1A81B268CFA0053AE1E /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCE0C1AE1B268CFA0053AE1E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FCE0C1931B268CFA0053AE1E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCE0C1C21B268DA90053AE1E /* TCTSiftView.m in Sources */,
+				FCE0C1A31B268CFA0053AE1E /* ViewController.m in Sources */,
+				FCE0C1A01B268CFA0053AE1E /* AppDelegate.m in Sources */,
+				FCB333841B26CF8100615F3D /* TCTSiftViewTabItem.m in Sources */,
+				FCB333871B26D52B00615F3D /* TCTSiftViewConst.m in Sources */,
+				FCE0C19D1B268CFA0053AE1E /* main.m in Sources */,
+				FCE0C1C61B268F2D0053AE1E /* TCTSiftViewController.m in Sources */,
+				FCB3338A1B26DD4400615F3D /* UIView+TCTSiftView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCE0C1AC1B268CFA0053AE1E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCE0C1B71B268CFA0053AE1E /* TCTSiftViewTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FCE0C1B21B268CFA0053AE1E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FCE0C1961B268CFA0053AE1E /* TCTSiftView */;
+			targetProxy = FCE0C1B11B268CFA0053AE1E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FCE0C1A41B268CFA0053AE1E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FCE0C1A51B268CFA0053AE1E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FCE0C1A91B268CFA0053AE1E /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FCE0C1AA1B268CFA0053AE1E /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FCE0C1B81B268CFA0053AE1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FCE0C1B91B268CFA0053AE1E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FCE0C1BB1B268CFA0053AE1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TCTSiftView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FCE0C1BC1B268CFA0053AE1E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TCTSiftView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FCE0C1BE1B268CFA0053AE1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TCTSiftViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TCTSiftView.app/TCTSiftView";
+			};
+			name = Debug;
+		};
+		FCE0C1BF1B268CFA0053AE1E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TCTSiftViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TCTSiftView.app/TCTSiftView";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FCE0C1921B268CFA0053AE1E /* Build configuration list for PBXProject "TCTSiftView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCE0C1B81B268CFA0053AE1E /* Debug */,
+				FCE0C1B91B268CFA0053AE1E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCE0C1BA1B268CFA0053AE1E /* Build configuration list for PBXNativeTarget "TCTSiftView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCE0C1BB1B268CFA0053AE1E /* Debug */,
+				FCE0C1BC1B268CFA0053AE1E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCE0C1BD1B268CFA0053AE1E /* Build configuration list for PBXNativeTarget "TCTSiftViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCE0C1BE1B268CFA0053AE1E /* Debug */,
+				FCE0C1BF1B268CFA0053AE1E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FCE0C18F1B268CF90053AE1E /* Project object */;
+}
