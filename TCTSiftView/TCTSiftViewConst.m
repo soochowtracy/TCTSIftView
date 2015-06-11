@@ -10,3 +10,9 @@
 
 const CGFloat TCTSiftViewTabHeight = 54.0;
 const CGFloat TCTSiftViewContentContainerHeight = 250;
+const NSInteger TCTSiftViewNumberOfTabs = 4;
+const BOOL TCTSiftViewShouldShowContent = YES;
+
+
+const NSTimeInterval TCTSiftViewShowContentDuration = 0.3;
+const NSTimeInterval TCTSiftViewShowContentDelay = 0.1;

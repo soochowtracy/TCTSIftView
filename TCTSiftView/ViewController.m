@@ -7,8 +7,10 @@
 //
 
 #import "ViewController.h"
+#import "TCTSiftView.h"
 
-@interface ViewController ()
+@interface ViewController ()<TCTSiftViewDatasource, TCTSiftViewDelegate>
+@property (weak, nonatomic) IBOutlet TCTSiftView *siftView;
 
 @end
 
@@ -17,11 +19,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    self.siftView.datasource = self;
+    self.siftView.delegate = self;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 @end

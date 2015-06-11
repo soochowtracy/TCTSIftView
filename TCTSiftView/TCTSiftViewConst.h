@@ -13,3 +13,10 @@
 
 extern const CGFloat TCTSiftViewTabHeight;
 extern const CGFloat TCTSiftViewContentContainerHeight;
+extern const NSInteger TCTSiftViewNumberOfTabs;
+extern const BOOL TCTSiftViewShouldShowContent;
+
+
+
+extern const NSTimeInterval TCTSiftViewShowContentDuration;
+extern const NSTimeInterval TCTSiftViewShowContentDelay;
