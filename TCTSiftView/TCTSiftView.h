@@ -16,7 +16,7 @@ typedef NS_ENUM(NSUInteger, TCTSiftViewType) {
 };
 
 
-@protocol TCTSiftViewDelegate, TCTSiftViewDatasource;
+@protocol TCTSiftViewDelegate, TCTSiftViewDatasource, TCTSiftViewCell;
 
 @interface TCTSiftView : UIView
 
@@ -36,14 +36,15 @@ typedef NS_ENUM(NSUInteger, TCTSiftViewType) {
 - (void)showContentViewAtIndex:(NSInteger)index;
 - (void)dismissContentView;
 
+- (void)selectTabAtIndex:(NSInteger)index;
+- (void)deselectTabAtIndex:(NSInteger)index;
+
 - (void)registerNib:(UINib *)nib forCellWithReuseIdentifier:(NSString *)identifier;
 - (UICollectionViewCell *)dequeueReusableCellWithReuseIdentifier:(NSString *)identifier forIndex:(NSInteger)index;
 @end
 
 
 @protocol TCTSiftViewDelegate <NSObject>
-
-@required
 
 @optional
 - (CGFloat)heightOfTabInSiftView:(TCTSiftView *)siftView;
@@ -55,19 +56,15 @@ typedef NS_ENUM(NSUInteger, TCTSiftViewType) {
 
 @end
 
-//UITableView
 @protocol TCTSiftViewDatasource <NSObject>
 
-@required
+@optional
 - (NSInteger)numberOfTabsInSiftView:(TCTSiftView *)siftView;
 
-- (UICollectionViewCell *)siftView:(TCTSiftView *)siftView viewForTabAtIndex:(NSInteger)index;
+- (UICollectionViewCell<TCTSiftViewCell> *)siftView:(TCTSiftView *)siftView cellForTabAtIndex:(NSInteger)index;
 - (id<TCTSiftViewTabItem>)siftView:(TCTSiftView *)siftView itemForTabAtIndex:(NSInteger)index;
 
 - (UIView *)siftView:(TCTSiftView *)siftView viewForContentAtIndex:(NSInteger)index;
-
-@optional
-
 
 @end
 

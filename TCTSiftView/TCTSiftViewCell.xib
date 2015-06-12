@@ -22,13 +22,12 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sZ-ul-bYD">
                         <rect key="frame" x="55" y="26" width="31" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
-            <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="9sZ-ul-bYD" secondAttribute="bottom" constant="10" id="CTe-2c-wNT"/>
                 <constraint firstItem="voj-4R-Nj5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="H1C-ux-z7h"/>
@@ -36,6 +35,10 @@
                 <constraint firstAttribute="centerX" secondItem="voj-4R-Nj5" secondAttribute="centerX" id="NzQ-pT-5tQ"/>
             </constraints>
             <size key="customSize" width="140" height="74"/>
+            <connections>
+                <outlet property="siftIcon" destination="voj-4R-Nj5" id="Z8I-h8-cX8"/>
+                <outlet property="siftTitle" destination="9sZ-ul-bYD" id="fpm-KW-iEJ"/>
+            </connections>
             <point key="canvasLocation" x="233" y="431.5"/>
         </collectionViewCell>
     </objects>

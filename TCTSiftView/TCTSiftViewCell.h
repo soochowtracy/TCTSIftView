@@ -8,6 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TCTSiftViewCell : UICollectionViewCell
+typedef NS_ENUM(NSUInteger, TCTSiftViewCellState) {
+    TCTSiftViewCellStateNormal       = 0,
+    TCTSiftViewCellStateHighlighted  = 1 << 0,
+    TCTSiftViewCellStateDisabled     = 1 << 1,
+    TCTSiftViewCellStateSelected     = 1 << 2,
+};
+
+@protocol TCTSiftViewCell <NSObject>
+
+@property (nonatomic, assign) BOOL chosen;
+
+@end
+
+@interface TCTSiftViewCell : UICollectionViewCell<TCTSiftViewCell>
+
+//@property (nonatomic, assign) BOOL chosen;
+
+- (void)setSiftTitle:(NSString *)siftTitle forState:(TCTSiftViewCellState)state;
+- (void)setSiftIcon:(UIImage *)siftIcon forState:(TCTSiftViewCellState)state;
 
 @end
