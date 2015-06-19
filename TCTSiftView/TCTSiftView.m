@@ -33,6 +33,7 @@ static inline NSIndexPath *TCT_IndexPathFromIndex(NSInteger index){
 
 @property (nonatomic, strong) NSMutableArray *cachedContents;
 @property (nonatomic, strong) NSMutableDictionary *availableContents;
+@property (nonatomic, assign) NSInteger currentShownContent;
 
 @property (nonatomic, readwrite) TCTSiftViewType siftViewType;
 @property (nonatomic, strong) id<TCTSiftViewTypeStrategy>siftViewTypeStrategy;
@@ -44,15 +45,15 @@ static inline NSIndexPath *TCT_IndexPathFromIndex(NSInteger index){
         unsigned itemForTabAtIndex : 1;
         unsigned cellForTabAtIndex : 1;
         unsigned viewForContentAtIndex : 1;
-//        unsigned canEditRowAtIndexPath : 1;
     } _dataSourceHas;
     
     struct {
-        unsigned heightOfTabInSiftView : 1;
+        unsigned widthOfTabAtIndex : 1;
         unsigned heightOfContentAtIndex : 1;
-        unsigned didSelectTabAtIndex : 1;
+        unsigned willShowContentAtIndex : 1;
+        unsigned didShowContentAtIndex : 1;
         unsigned shouldShowContentAtIndex : 1;
-        unsigned estimateheightOfContentInSiftView : 1;
+        unsigned didClickTabAtIndex : 1;
         
     } _delegateHas;
 }
@@ -99,10 +100,8 @@ static inline NSIndexPath *TCT_IndexPathFromIndex(NSInteger index){
     self.siftViewType = TCTSiftViewTypeSystem;
     self.backgroundColor = [UIColor clearColor];
     self.siftBackground.alpha = 0.0;
-//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissContentView)];
-//    [self.backgroundView addGestureRecognizer:tapGesture];
     
-    self.siftContentContainer.backgroundColor = [UIColor redColor];
+    self.currentShownContent = NSIntegerMax;
 }
 
 - (void)layoutSiftViewTab{
@@ -151,7 +150,7 @@ static inline NSIndexPath *TCT_IndexPathFromIndex(NSInteger index){
     }
 }
 
-- (UICollectionViewCell<TCTSiftViewCell> *)cellForTabAtIndex:(NSInteger)index{
+- (UICollectionViewCell *)cellForTabAtIndex:(NSInteger)index{
     
     if (_dataSourceHas.cellForTabAtIndex) {
         return [_datasource siftView:self cellForTabAtIndex:index];
@@ -160,10 +159,14 @@ static inline NSIndexPath *TCT_IndexPathFromIndex(NSInteger index){
         
         if (_dataSourceHas.itemForTabAtIndex) {
             id<TCTSiftViewTabItem> tempItem = [_datasource siftView:self itemForTabAtIndex:index];
-            [tempCell setSiftTitle:[tempItem title] forState:TCTSiftViewCellStateNormal];
-            [tempCell setSiftIcon:[tempItem defaultImage] forState:TCTSiftViewCellStateNormal];
-            [tempCell setSiftIcon:[tempItem selectedImage] forState:TCTSiftViewCellStateSelected];
-            [tempCell setChosen:[tempItem isSelected]];
+            if ([tempItem isSelected]) {
+                tempCell.siftIcon.image = [tempItem selectedImage];
+                tempCell.siftTitle.textColor = [tempItem selectedTitleColor];
+            }else{
+                tempCell.siftIcon.image = [tempItem defaultImage];
+                tempCell.siftTitle.textColor = [tempItem defaultTitleColor];
+            }
+            tempCell.siftTitle.text = [tempItem title];
         }
         
         return tempCell;
@@ -171,16 +174,26 @@ static inline NSIndexPath *TCT_IndexPathFromIndex(NSInteger index){
 }
 
 - (CGFloat)heightOfTab{
-    if (_delegateHas.heightOfTabInSiftView) {
-        return [_delegate heightOfTabInSiftView:self];
+    if (self.tabHeight > 0.1) {
+        return self.tabHeight;
     }else{
         return TCTSiftViewTabHeight;
     }
 }
 
+- (CGFloat)widthOfTabAtIndex:(NSInteger)index{
+    if (_delegateHas.widthOfTabAtIndex) {
+        return [_delegate siftView:self widthOfTabAtIndex:index];
+    }else{
+        return self.tct_w/[self numberOfTabs];
+    }
+}
+
 - (CGFloat)estimateHeightOfContent{
-    if (_delegateHas.estimateheightOfContentInSiftView) {
-        return [_delegate estimateheightOfContentInSiftView:self];
+    if (self.estimatecontentViewHeight > 0.1) {
+        return self.estimatecontentViewHeight;
+    }else if (self.contentViewHeight > 0.1){
+        return self.contentViewHeight;
     }else{
         return TCTSiftViewContentContainerHeight;
     }
@@ -189,6 +202,8 @@ static inline NSIndexPath *TCT_IndexPathFromIndex(NSInteger index){
 - (CGFloat)heightOfContentAtIndex:(NSInteger)index{
     if (_delegateHas.heightOfContentAtIndex) {
         return [_delegate siftView:self heightOfContentAtIndex:index];
+    }else if(self.contentViewHeight > 0.1){
+        return self.contentViewHeight;
     }else{
         return TCTSiftViewContentContainerHeight;
     }
@@ -201,6 +216,11 @@ static inline NSIndexPath *TCT_IndexPathFromIndex(NSInteger index){
         return TCTSiftViewShouldShowContent;
     }
 }
+
+- (BOOL)isShownNewContentViewAtIndex:(NSInteger)index{
+        return self.currentShownContent == NSIntegerMax;
+}
+
 #pragma mark - public
 
 - (void)reloadData{
@@ -213,57 +233,13 @@ static inline NSIndexPath *TCT_IndexPathFromIndex(NSInteger index){
     [self layoutIfNeeded];
 }
 
-- (void)showContentViewAtIndex:(NSInteger)index{
-    
-    [[self.availableContents allValues] makeObjectsPerformSelector:@selector(setHidden:) withObject:@YES];
-    UIView *temp = [self.availableContents objectForKey:@(index)];
-    temp.hidden = NO;
-    
-    CGFloat h = [self heightOfContentAtIndex:index];
-    self.siftBackground.alpha = 0.1;
-    [UIView animateWithDuration:TCTSiftViewShowContentDuration
-                          delay:TCTSiftViewShowContentDelay
-         usingSpringWithDamping:0.9
-          initialSpringVelocity:10
-                        options:UIViewAnimationOptionCurveEaseOut
-                     animations:^{
-                         self.siftBackground.alpha = 1.0;
-                         self.siftContentContainer.frame = CGRectMake(self.siftContentContainer.tct_x, self.siftContentContainer.tct_y - h, self.siftContentContainer.tct_w, h);
-                     }
-                     completion:^(BOOL finished) {
-                         
-                     }];
-}
-
-- (void)selectTabAtIndex:(NSInteger)index{
-    if (index < [self numberOfTabs]) {
-        UICollectionViewCell<TCTSiftViewCell> *temp = (UICollectionViewCell<TCTSiftViewCell> *)[self.siftTab cellForItemAtIndexPath:TCT_IndexPathFromIndex(index)];
-        temp.chosen = YES;
-//        [self.siftTab reloadData];
-    }
-}
-
-- (void)deselectTabAtIndex:(NSInteger)index{
-    if (index < [self numberOfTabs]) {
-        UICollectionViewCell<TCTSiftViewCell> *temp = (UICollectionViewCell<TCTSiftViewCell> *)[self.siftTab cellForItemAtIndexPath:TCT_IndexPathFromIndex(index)];
-        temp.chosen = NO;
-    }
-}
-
-- (void)dismissContentView{
-    CGFloat h = [self estimateHeightOfContent];
-    [UIView animateWithDuration:TCTSiftViewShowContentDuration
-                     animations:^{
-                         
-                         self.siftContentContainer.frame = CGRectMake(self.siftContentContainer.tct_x, self.tct_h, self.siftContentContainer.tct_w, h);
-                     }
-                     completion:^(BOOL finished) {
-                         self.siftBackground.alpha = 0.0;
-                     }];
-}
 
 - (void)registerNib:(UINib *)nib forCellWithReuseIdentifier:(NSString *)identifier{
     [self.siftTab registerNib:nib forCellWithReuseIdentifier:identifier];
+}
+
+- (void)registerClass:(Class)cellClass forCellReuseIdentifier:(NSString *)identifier{
+    [self.siftTab registerClass:cellClass forCellWithReuseIdentifier:identifier];
 }
 
 - (UICollectionViewCell *)dequeueReusableCellWithReuseIdentifier:(NSString *)identifier forIndex:(NSInteger)index{
@@ -283,17 +259,38 @@ static inline NSIndexPath *TCT_IndexPathFromIndex(NSInteger index){
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
     if ([self shouldShowContentAtIndex:TCT_IndexFromIndexPath(indexPath)]) {
-        [self showContentViewAtIndex:TCT_IndexFromIndexPath(indexPath)];
+        if (_delegateHas.willShowContentAtIndex) {
+            [_delegate siftView:self willShowContentAtIndex:TCT_IndexFromIndexPath(indexPath)];
+        }
+        
+        NSInteger index = TCT_IndexFromIndexPath(indexPath);
+        
+        if (self.currentShownContent == index) {
+            [self dismissContentView];
+        }else{
+            [self showContentViewAtIndex:index];
+        }
+
+        if (_delegateHas.didShowContentAtIndex) {
+            [_delegate siftView:self didShowContentAtIndex:TCT_IndexFromIndexPath(indexPath)];
+        }
+    }else{
+        if (![self isShownNewContentViewAtIndex:TCT_IndexFromIndexPath(indexPath)]) {
+            [self dismissContentView];
+        }
     }
     
-    if (_delegateHas.didSelectTabAtIndex) {
-        [_delegate siftView:self didSelectTabAtIndex:TCT_IndexFromIndexPath(indexPath)];
+    if (_delegateHas.didClickTabAtIndex) {
+        [_delegate siftView:self didClickTabAtIndex:TCT_IndexFromIndexPath(indexPath)];
     }
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    CGSize temp= CGSizeMake(self.tct_w/[self numberOfTabs], self.siftTab.tct_h);
+    
+    CGFloat width = [self widthOfTabAtIndex:TCT_IndexFromIndexPath(indexPath)];
+    CGSize temp= CGSizeMake(width, self.siftTab.tct_h);
     
     return temp;
 }
@@ -308,6 +305,7 @@ static inline NSIndexPath *TCT_IndexPathFromIndex(NSInteger index){
         flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         UICollectionView *temp = [[UICollectionView alloc] initWithFrame:self.frame collectionViewLayout:flowLayout];
         [temp registerNib:[UINib nibWithNibName:NSStringFromClass([TCTSiftViewCell class]) bundle:nil] forCellWithReuseIdentifier:siftViewDefaultTabCellIdentifier];
+        temp.backgroundColor = TCTSiftViewTabBackgroundColor;
         temp.dataSource = self;
         temp.delegate = self;
         
@@ -329,7 +327,7 @@ static inline NSIndexPath *TCT_IndexPathFromIndex(NSInteger index){
 - (UIControl *)siftBackground{
     if (!_siftBackground) {
         UIControl *temp = [[UIControl alloc] init];
-        temp.backgroundColor = [UIColor blackColor];
+        temp.backgroundColor = TCTSiftViewBackgroundColor;
         [temp addTarget:self action:@selector(dismissContentView) forControlEvents:UIControlEventTouchUpInside];
         [self insertSubview:_siftBackground = temp belowSubview:self.siftTab];
     }
@@ -365,12 +363,14 @@ static inline NSIndexPath *TCT_IndexPathFromIndex(NSInteger index){
 - (void)setDelegate:(id<TCTSiftViewDelegate>)delegate{
     _delegate = delegate;
     
-    _delegateHas.heightOfTabInSiftView = [_delegate respondsToSelector:@selector(heightOfTabInSiftView:)];
-    _delegateHas.estimateheightOfContentInSiftView = [_delegate respondsToSelector:@selector(estimateheightOfContentInSiftView:)];
+    _delegateHas.widthOfTabAtIndex = [_delegate respondsToSelector:@selector(siftView:widthOfTabAtIndex:)];
     _delegateHas.heightOfContentAtIndex = [_delegate respondsToSelector:@selector(siftView:heightOfContentAtIndex:)];
     
-    _delegateHas.didSelectTabAtIndex = [_delegate respondsToSelector:@selector(siftView:didSelectTabAtIndex:)];
+    _delegateHas.willShowContentAtIndex = [_delegate respondsToSelector:@selector(siftView:willShowContentAtIndex:)];
+    _delegateHas.didShowContentAtIndex = [_delegate respondsToSelector:@selector(siftView:didShowContentAtIndex:)];
     _delegateHas.shouldShowContentAtIndex = [_delegate respondsToSelector:@selector(siftView:shouldShowContentAtIndex:)];
+    
+    _delegateHas.didClickTabAtIndex = [_delegate respondsToSelector:@selector(siftView:didClickTabAtIndex:)];
 }
 
 - (NSMutableArray *)cachedContents{
@@ -388,4 +388,91 @@ static inline NSIndexPath *TCT_IndexPathFromIndex(NSInteger index){
     
     return _availableContents;
 }
+
 @end
+
+
+@implementation TCTSiftView (Animation)
+
+- (void)showNewContentViewAtIndex:(NSInteger)index{
+    self.currentShownContent = index;
+    [[self.availableContents allValues] makeObjectsPerformSelector:@selector(setHidden:) withObject:@YES];
+    UIView *temp = [self.availableContents objectForKey:@(index)];
+    temp.hidden = NO;
+    
+    CGFloat h = [self heightOfContentAtIndex:index];
+    
+    [UIView animateWithDuration:TCTSiftViewBackgroundDuration animations:^{
+        self.siftBackground.alpha = 1.0;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:TCTSiftViewShowContentDuration
+                              delay:TCTSiftViewShowContentDelay
+             usingSpringWithDamping:0.9
+              initialSpringVelocity:10
+                            options:UIViewAnimationOptionCurveEaseOut
+                         animations:^{
+                             self.siftContentContainer.frame = CGRectMake(self.siftContentContainer.tct_x, self.siftContentContainer.tct_y - h, self.siftContentContainer.tct_w, h);
+                         }
+                         completion:^(BOOL finished) {
+                             
+                         }];
+        
+    }];
+    
+}
+
+- (void)showOtherContentViewAtIndex:(NSInteger)index{
+    
+    CGFloat originH = [self heightOfContentAtIndex:self.currentShownContent];
+    CGFloat destH = [self heightOfContentAtIndex:index];
+    
+    self.currentShownContent = index;
+    [UIView animateWithDuration:TCTSiftViewDismissContentDuration animations:^{
+        self.siftContentContainer.frame = CGRectMake(self.siftContentContainer.tct_x, self.tct_h, self.siftContentContainer.tct_w, originH);
+    } completion:^(BOOL finished) {
+        [[self.availableContents allValues] makeObjectsPerformSelector:@selector(setHidden:) withObject:@YES];
+        UIView *temp = [self.availableContents objectForKey:@(index)];
+        temp.hidden = NO;
+        [UIView animateWithDuration:TCTSiftViewShowContentDuration
+                              delay:TCTSiftViewShowContentDelay
+             usingSpringWithDamping:0.9
+              initialSpringVelocity:10
+                            options:UIViewAnimationOptionCurveEaseOut
+                         animations:^{
+                             self.siftContentContainer.frame = CGRectMake(self.siftContentContainer.tct_x, self.siftContentContainer.tct_y - destH, self.siftContentContainer.tct_w, destH);
+                         }
+                         completion:^(BOOL finished) {
+                             
+                         }];
+        
+    }];
+    
+}
+
+- (void)showContentViewAtIndex:(NSInteger)index{
+    if ([self isShownNewContentViewAtIndex:index]) {
+        [self showNewContentViewAtIndex:index];
+    }else{
+        [self showOtherContentViewAtIndex:index];
+    }
+}
+
+- (void)dismissContentView{
+    self.currentShownContent = NSIntegerMax;
+    CGFloat h = [self estimateHeightOfContent];
+    [UIView animateWithDuration:TCTSiftViewDismissContentDuration
+                     animations:^{
+                         self.siftContentContainer.frame = CGRectMake(self.siftContentContainer.tct_x, self.tct_h, self.siftContentContainer.tct_w, h);
+                     }
+                     completion:^(BOOL finished) {
+                         [UIView animateWithDuration:TCTSiftViewBackgroundDuration animations:^{
+                             self.siftBackground.alpha = 0.0;
+                         } completion:^(BOOL finished) {
+                             
+                         }];
+                         
+                     }];
+}
+
+@end
+

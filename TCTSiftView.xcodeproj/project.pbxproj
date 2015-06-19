@@ -125,14 +125,17 @@
 				FCE0C1A71B268CFA0053AE1E /* Images.xcassets */,
 				FCE0C1A91B268CFA0053AE1E /* LaunchScreen.xib */,
 				FCE0C19A1B268CFA0053AE1E /* Supporting Files */,
+				FCE0C1C01B268DA90053AE1E /* TCTSiftView.h */,
+				FCE0C1C11B268DA90053AE1E /* TCTSiftView.m */,
 				FCB333851B26D52B00615F3D /* TCTSiftViewConst.h */,
 				FCB333861B26D52B00615F3D /* TCTSiftViewConst.m */,
 				FCB333881B26DD4300615F3D /* UIView+TCTSiftView.h */,
 				FCB333891B26DD4300615F3D /* UIView+TCTSiftView.m */,
-				FCE0C1C01B268DA90053AE1E /* TCTSiftView.h */,
-				FCE0C1C11B268DA90053AE1E /* TCTSiftView.m */,
 				FCB333821B26CF8100615F3D /* TCTSiftViewTabItem.h */,
 				FCB333831B26CF8100615F3D /* TCTSiftViewTabItem.m */,
+				FCE0C1171B28171F00AD5E73 /* TCTSiftViewCell.h */,
+				FCE0C1181B28171F00AD5E73 /* TCTSiftViewCell.m */,
+				FCE0C1191B28171F00AD5E73 /* TCTSiftViewCell.xib */,
 				FCE0C1C31B268F2D0053AE1E /* TCTSiftViewController.h */,
 				FCE0C1C41B268F2D0053AE1E /* TCTSiftViewController.m */,
 				FCE0C1C51B268F2D0053AE1E /* TCTSiftViewController.xib */,
@@ -146,9 +149,6 @@
 			children = (
 				FCE0C19B1B268CFA0053AE1E /* Info.plist */,
 				FCE0C19C1B268CFA0053AE1E /* main.m */,
-				FCE0C1171B28171F00AD5E73 /* TCTSiftViewCell.h */,
-				FCE0C1181B28171F00AD5E73 /* TCTSiftViewCell.m */,
-				FCE0C1191B28171F00AD5E73 /* TCTSiftViewCell.xib */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

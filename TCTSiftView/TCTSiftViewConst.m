@@ -8,11 +8,13 @@
 
 @import UIKit;
 
-const CGFloat TCTSiftViewTabHeight = 54.0;
-const CGFloat TCTSiftViewContentContainerHeight = 250;
+const CGFloat TCTSiftViewTabHeight = 50.0;
+const CGFloat TCTSiftViewContentContainerHeight = 242;
 const NSInteger TCTSiftViewNumberOfTabs = 4;
 const BOOL TCTSiftViewShouldShowContent = YES;
 
 
-const NSTimeInterval TCTSiftViewShowContentDuration = 0.3;
-const NSTimeInterval TCTSiftViewShowContentDelay = 0.1;
+const NSTimeInterval TCTSiftViewShowContentDuration = 0.2;
+const NSTimeInterval TCTSiftViewBackgroundDuration = 0.05;
+const NSTimeInterval TCTSiftViewDismissContentDuration = 0.1;
+const NSTimeInterval TCTSiftViewShowContentDelay = 0.0;
