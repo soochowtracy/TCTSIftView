@@ -54,14 +54,6 @@ typedef NS_ENUM(NSUInteger, TCTSiftViewType) {
 @property (nonatomic) CGFloat contentViewHeight;
 
 /**
- *  The estimate height of content view in the sift view.
- *
- *  It is used to optimize the animation when dismissing.
- */
-@property (nonatomic) CGFloat estimatecontentViewHeight;
-//@property(nonatomic, readwrite, strong) UIView *backgroundView;
-
-/**
  *  Reloads the tabs and contents of the sift view.
  *
  *  Call this method to reload all the data that is used to construct the sift view, including tabs, contents and so on. For efficiency, the sift view redisplays only those tabs that are visible. It adjusts offsets if the sift shrinks as a result of the reload. The sift view’s delegate or data source calls this method when it wants the table view to completely reload its data.

@@ -10,7 +10,7 @@
 
 @interface TCTSiftViewCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *siftIcon;
-@property (weak, nonatomic) IBOutlet UILabel *siftTitle;
+@property (strong, nonatomic) UIImageView *siftIcon;
+@property (strong, nonatomic) UILabel *siftTitle;
 
 @end

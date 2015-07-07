@@ -14,7 +14,7 @@ const NSInteger TCTSiftViewNumberOfTabs = 4;
 const BOOL TCTSiftViewShouldShowContent = YES;
 
 
-const NSTimeInterval TCTSiftViewShowContentDuration = 0.2;
+const NSTimeInterval TCTSiftViewShowContentDuration = 0.5;
 const NSTimeInterval TCTSiftViewBackgroundDuration = 0.05;
-const NSTimeInterval TCTSiftViewDismissContentDuration = 0.1;
+const NSTimeInterval TCTSiftViewDismissContentDuration = 0.2;
 const NSTimeInterval TCTSiftViewShowContentDelay = 0.0;

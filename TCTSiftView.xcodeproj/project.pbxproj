@@ -12,7 +12,6 @@
 		FCB3338A1B26DD4400615F3D /* UIView+TCTSiftView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB333891B26DD4300615F3D /* UIView+TCTSiftView.m */; };
 		FCE0BFB31B27E1DA00AD5E73 /* TCTSiftViewTypeStrategySystem.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE0BFB21B27E1DA00AD5E73 /* TCTSiftViewTypeStrategySystem.m */; };
 		FCE0C11A1B28171F00AD5E73 /* TCTSiftViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE0C1181B28171F00AD5E73 /* TCTSiftViewCell.m */; };
-		FCE0C11B1B28171F00AD5E73 /* TCTSiftViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCE0C1191B28171F00AD5E73 /* TCTSiftViewCell.xib */; };
 		FCE0C19D1B268CFA0053AE1E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE0C19C1B268CFA0053AE1E /* main.m */; };
 		FCE0C1A01B268CFA0053AE1E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE0C19F1B268CFA0053AE1E /* AppDelegate.m */; };
 		FCE0C1A31B268CFA0053AE1E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE0C1A21B268CFA0053AE1E /* ViewController.m */; };
@@ -47,7 +46,6 @@
 		FCE0BFB41B27E24B00AD5E73 /* TCTSiftViewTypeStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTSiftViewTypeStrategy.h; sourceTree = "<group>"; };
 		FCE0C1171B28171F00AD5E73 /* TCTSiftViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTSiftViewCell.h; sourceTree = "<group>"; };
 		FCE0C1181B28171F00AD5E73 /* TCTSiftViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTSiftViewCell.m; sourceTree = "<group>"; };
-		FCE0C1191B28171F00AD5E73 /* TCTSiftViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCTSiftViewCell.xib; sourceTree = "<group>"; };
 		FCE0C1971B268CFA0053AE1E /* TCTSiftView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCTSiftView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCE0C19B1B268CFA0053AE1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCE0C19C1B268CFA0053AE1E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -135,7 +133,6 @@
 				FCB333831B26CF8100615F3D /* TCTSiftViewTabItem.m */,
 				FCE0C1171B28171F00AD5E73 /* TCTSiftViewCell.h */,
 				FCE0C1181B28171F00AD5E73 /* TCTSiftViewCell.m */,
-				FCE0C1191B28171F00AD5E73 /* TCTSiftViewCell.xib */,
 				FCE0C1C31B268F2D0053AE1E /* TCTSiftViewController.h */,
 				FCE0C1C41B268F2D0053AE1E /* TCTSiftViewController.m */,
 				FCE0C1C51B268F2D0053AE1E /* TCTSiftViewController.xib */,
@@ -253,7 +250,6 @@
 				FCE0C1A61B268CFA0053AE1E /* Main.storyboard in Resources */,
 				FCE0C1AB1B268CFA0053AE1E /* LaunchScreen.xib in Resources */,
 				FCE0C1C71B268F2D0053AE1E /* TCTSiftViewController.xib in Resources */,
-				FCE0C11B1B28171F00AD5E73 /* TCTSiftViewCell.xib in Resources */,
 				FCE0C1A81B268CFA0053AE1E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,6 +404,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TCTSiftView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -418,6 +415,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TCTSiftView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
